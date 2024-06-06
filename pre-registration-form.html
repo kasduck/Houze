@@ -3,39 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap"
+    />
+
     <title>Form to Avail the Offer</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
             margin: 0;
+            padding: 0;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .topSection {
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            width: 100%;
+            box-shadow: 0px 9.3px 18.67px rgba(0, 0, 0, 0.25);
+            border-radius: 0px 0px 37.35px 37.35px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        header img {
+            height: 48px;
+            width: 166.1px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            padding-top: 80px;
+            box-sizing: border-box;
+            gap: 42px;
+            max-width: 900px;
+            text-align: center;
+            font-size: 4rem;
+            color: #3259ea;
+        }
+        main h1 {
+            margin: 0;
+            width: 828;
+            font-size: 81px; /* Changed font size */
+            line-height: 1;
+            font-weight: 800;
+            font-family: inherit;
+        }
+        main section {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #818c96;
         }
         .container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+            max-width: 90%;
             width: 100%;
-        }
-        .container h1 {
-            margin-top: 0;
-        }
-        .container p {
-            font-size: 14px;
-            color: #555;
+            margin: 20px;
         }
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .form-group label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            font-size: 1rem;
         }
         .form-group input,
         .form-group select,
@@ -45,9 +108,11 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 1rem;
         }
         .form-group input[type="checkbox"] {
             width: auto;
+            size: 40;
         }
         .form-group .multiple-select {
             display: flex;
@@ -57,74 +122,270 @@
             font-weight: normal;
             margin: 2px 0;
         }
+
+        .multiple-select-label {
+            font-weight: 400; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            margin-top: 10px;
+        }
+
+
         .form-group button {
             width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
+            padding: 20px;
+            background-color: #3259ea;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             color: white;
-            font-size: 16px;
+            font-size: 1.5rem;
             cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: -20px;
         }
         .form-group button:hover {
-            background-color: #45a049;
+            background-color: #103feb;
         }
+        .input-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .input-wrapper .country-code {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            font-size: 1rem;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-weight: bold;
+        }
+        .input-wrapper input {
+            padding-left: 40px;
+        }
+        .pincode-group {
+            position: relative;
+            display: inline-block;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 50px;
+        }
+        .success-message h1 {
+            font-size: 2rem;
+            color: #3259ea;
+            font-weight: 800;
+        }
+        .success-message p {
+            font-size: 1.25rem;
+            color: #818c96;
+            font-weight: 700;
+        }
+        .visit-website-button {
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            background-color: transparent;
+            max-width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .visit-website-button div {
+            border-radius: 12.71px;
+            background-color: #3259ea;
+            padding: 15px;
+            box-sizing: border-box;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Noto Sans', sans-serif;
+            text-align: center;
+        }
+        .form-group input[type="checkbox"] {
+            width: auto;
+            transform: scale(1.5); /* Increase the size of the checkbox */
+        }
+        @media (min-width: 768px) {
+            main {
+                font-size: 4rem;
+            }
+            main section {
+                font-size: 1.75rem;
+            }
+            .container {
+                padding: 40px;
+                max-width: 550px;
+            }
+            .form-group label {
+                font-size: 1.25rem;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 1.125rem;
+            }
+        }
+
     </style>
 </head>
 <body>
+    <div id="main-page" class="wrapper">
+        <div class="topSection">
+            <header>
+                <a href="https://www.houzeeindia.com/"> 
+                    <img loading="lazy" alt="Houzee Logo" src="./houzeeLogo.svg" />
+                </a>
+            </header>
 
-    <div class="container">
-        <h1>Fill out the form to avail the Offer</h1>
-        <p>Thank you for your interest to Pre-Register With Houzee!<br>
-        And to get the Promotional offer, Fill out the Form below!</p>
+            <div class="form-container" id="heading-section">
+                <main>
+                    <h1>
+                        Fill out the form to avail the Offer
+                    </h1>
+                    <section>
+                        <p style="margin: 0">Thank you for your interest to Pre-Register With Houzee!</p>
+                        <p style="margin: 0">And to get the Promotional offer,</p>
+                        <p style="margin: 0">Fill out the Form below!</p>
+                    </section>
+                </main>
+            </div>
+            <div class="container" id="form-page">
+                <form id="houzee-form">
+                    <div class="form-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile-number">Enter Your Number Here:</label>
+                        <div class="input-wrapper">
+                            <span class="country-code">+91</span>
+                            <input type="tel" id="mobile-number" name="mobile-number" maxlength="10" required>
+                        </div>
+                    </div>
 
-        <form>
-            <div class="form-group">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
+                    <div class="form-group pincode-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="text" id="pincode" name="pincode" maxlength="6" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="options">How did you hear about Houzee?:</label>
+                        <select id="options" name="options" required>
+                            <option value="" disabled selected>Choose Your option</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="whatsapp">Whatsapp</option>
+                            <option value="google-search">Google Search</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="subscribe" id="myCheckBox">
+                            Are you interested in receiving updates about Houzee via WhatsApp
+                        </label>
+                    </div>
+                    <div class="form-group multiple-select">
+                        <label>Where all you think you’d require the help of Houzee:</label>
+                        <label class="multiple-select-label"><input type="checkbox" name="preferences" value="maid"> Maid</label>
+                        <label class="multiple-select-label"><input type="checkbox" name="preferences" value="cook"> Cook</label>
+                        <label class="multiple-select-label"><input type="checkbox" name="preferences" value="driver"> Driver</label>
+                        <label class="multiple-select-label"><input type="checkbox" name="preferences" value="car-washer"> Car Washer</label>
+                        <label class="multiple-select-label"><input type="checkbox" name="preferences" value="beautician-barber"> Beautician/Barber</label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="sub">Submit</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
+        </div>
+        
+        <div id="thank-you-message" class="success-message">
+            <h1>Thank You!</h1>
+            <p>You have successfully submitted the form.</p>
+            <div class="visit-website-button">
+                <a href="https://www.houzeeindia.com/" style="text-decoration:none;">
+                    <div>Visit our Website</div>
+                </a>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="mobile-number">Mobile Number (with country code):</label>
-                <input type="tel" id="mobile-number" name="mobile-number" required>
-            </div>
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="subscribe" required>
-                    I agree to receive promotional offers.
-                </label>
-            </div>
-            <div class="form-group">
-                <label for="options">Choose an option:</label>
-                <select id="options" name="options">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                    <option value="option5">Option 5</option>
-                </select>
-            </div>
-            <div class="form-group multiple-select">
-                <label>Select your preferences:</label>
-                <label><input type="checkbox" name="preferences" value="preference1"> Preference 1</label>
-                <label><input type="checkbox" name="preferences" value="preference2"> Preference 2</label>
-                <label><input type="checkbox" name="preferences" value="preference3"> Preference 3</label>
-                <label><input type="checkbox" name="preferences" value="preference4"> Preference 4</label>
-                <label><input type="checkbox" name="preferences" value="preference5"> Preference 5</label>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
+        </div>
     </div>
+    <script>
+        document.getElementById('mobile-number').addEventListener('input', function(e) {
+            let input = e.target;
+            input.value = input.value.replace(/\D/g, '').slice(0, 10);
+        });
 
+        document.getElementById('pincode').addEventListener('input', function(e) {
+            let input = e.target;
+            input.value = input.value.replace(/\D/g, '').slice(0, 6);
+        });
+
+        document.getElementById('houzee-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const mobileNumber = document.getElementById('mobile-number').value;
+            if (mobileNumber.length !== 10) {
+                alert('Mobile number must be a 10-digit number.');
+                return;
+            }
+
+            const pincode = document.getElementById('pincode').value;
+            if (pincode.length !== 6) {
+                alert('Pincode must be a 6-digit number.');
+                return;
+            }
+
+            const formData = new FormData();
+
+            var dropdown = document.getElementById("options");
+            var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+
+            var checkboxes = document.querySelectorAll('input[name="preferences"]:checked');
+            var selectedProfessions = [];
+            checkboxes.forEach(function(checkbox) {
+                selectedProfessions.push(checkbox.value);
+            });
+
+            const data = {
+                first_name: document.getElementById('first-name').value,
+                last_name: document.getElementById('last-name').value,
+                mobile_number: mobileNumber,
+                email: document.getElementById('email').value,
+                pincode: pincode,
+                how_did_hear_about_houzee: selectedValue,
+                interested_in_reciving_updates: document.getElementById("myCheckBox").checked,
+                require_professionss: selectedProfessions
+            };
+
+            fetch('http://3.108.63.13:8000/website/submit_form_responce', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+
+                var thankYouMessage = document.getElementById('thank-you-message');
+                var headingSection = document.getElementById('heading-section');
+                var formPage = document.getElementById('form-page');
+
+                headingSection.style.display = 'none';
+                formPage.style.display = 'none';
+                thankYouMessage.style.display = 'block';                
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>
