@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap"
+    />
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .topSection {
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            width: 100%;
+            box-shadow: 0px 9.3px 18.67px rgba(0, 0, 0, 0.25);
+            background-color: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        header img {
+            height: 48px;
+            width: 166.1px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            padding-top: 80px;
+            box-sizing: border-box;
+            gap: 42px;
+            max-width: 900px;
+            text-align: center;
+            font-size: 4rem;
+            color: #3259ea;
+        }
+        main h1 {
+            margin: 0;
+            width: 828;
+            font-size: 81px; /* Changed font size */
+            line-height: 1;
+            font-weight: 800;
+            font-family: inherit;
+        }
+        main section {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #818c96;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-page" class="wrapper">
+        <div class="topSection">
+            <header>
+                <a href="https://www.houzeeindia.com/"> 
+                    <img loading="lazy" alt="Houzee Logo" src="./houzeeLogo.svg" />
+                </a>
+            </header>
+
+            <div class="form-container" id="heading-section">
+                <main>
+                    <h1>
+                        Brand Guidlines
+                    </h1>
+                </main>
+
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FI3rvQlGheq6CxGx2earwQX%2FHouzee%3Fnode-id%3D3176-7118%26t%3DlhkgOBT0IOARrddh-1" allowfullscreen></iframe>
+            </div>
+</body>
+</html>
