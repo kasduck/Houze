@@ -378,14 +378,14 @@
                 require_professionss: selectedProfessions
             };
 
-            fetch('http://3.108.63.13:8000/website/submit_form_responce', {
+            fetch('http://3.108.52.74:8000/website/submit_form_responce', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => response.json())
+            .then(response =>  response.json())
             .then(data => {
                 console.log('Success:', data);
 
